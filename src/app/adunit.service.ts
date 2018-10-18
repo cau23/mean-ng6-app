@@ -27,4 +27,28 @@ export class AdunitService {
             .get(`${this.uri}/adunits`);
   }
 
+  editAdUnit(id) {
+    return this
+               .http
+               .get(`${this.uri}/edit/${id}`);
+  }
+
+  updateAdUnit(unit_name, unit_price, id) {
+
+    const obj = {
+      unit_name: unit_name,
+      unit_price: unit_price
+    };
+    this
+        .http
+        .post(`{$this.uri}/update/${id}`, obj)
+        .subscribe(res => console.log('Done'));
+  }
+
+  deleteAdUnit(id) {
+    return this
+               .http
+               .get(`${this.uri}/delete/${id}`);
+  }
 }
+

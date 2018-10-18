@@ -13,6 +13,12 @@ export class IndexComponent implements OnInit {
 
   constructor(private adunitservice: AdunitService) { }
 
+  deleteAdUnit(id) {
+    this.adunitservice.deleteAdUnit(id).subscribe(res => {
+      console.log('Deleted');
+    });
+  }
+  
   ngOnInit() {
   	this.adunitservice
   		.getAdUnits()
@@ -20,4 +26,5 @@ export class IndexComponent implements OnInit {
   		this.adunits = data;
   	});
   }
+
 }
